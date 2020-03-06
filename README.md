@@ -4,8 +4,11 @@
 
 ### Install command line tools
 
+> requires [yarn](https://classic.yarnpkg.com/en/docs/install/) or [npm](https://www.npmjs.com/get-npm)
+
 ```bash
-# install cli, you can use npm instead `npm install -g @letsh/cli`
+# install cli
+# you can use npm instead: `npm install -g @letsh/cli`
 yarn global add @letsh/cli
 
 # login with your github account

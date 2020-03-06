@@ -14,8 +14,26 @@ lets login
 
 ### Then clone project and deploy with a single command line
 
+#### Static hosting
+
+```bash
+git clone https://github.com/let-sh/example
+cd static
+lets deploy -t static
+```
+
+#### Node express framework
+
+```bash
+git clone https://github.com/let-sh/example
+cd express
+lets deploy -t express
+```
+
+#### Golang gin framework
+
 ```bash
 git clone https://github.com/let-sh/example
 cd gin
-lets deploy
+lets deploy -t gin
 ```

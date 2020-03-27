@@ -40,3 +40,10 @@ git clone https://github.com/let-sh/example
 cd gin
 lets deploy -t gin
 ```
+
+### Link the domain to the project
+
+```bash
+# you can custom xxxx.let.sh with any other domain ending with let.sh
+lets link xxxx.let.sh
+```

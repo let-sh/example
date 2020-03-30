@@ -4,18 +4,22 @@
 
 ### Install command line tools
 
-> requires [yarn](https://classic.yarnpkg.com/en/docs/install/) or [npm](https://www.npmjs.com/get-npm)
+Open your terminal, copy the the command below and run it:
 
 ```bash
 # install cli
-# you can use npm instead: `npm install -g @letsh/cli`
-yarn global add @letsh/cli
+# optional: you can use npm or yarn instead: `npm install -g @letsh/cli` or `yarn global add @letsh/cli`
+curl -o- -sL https://install.let.sh.cn/install.sh | bash
+```
 
+### Login
+
+```bash
 # login with your github account
 lets login
 ```
 
-### Then clone project and deploy with a single command line
+### Then clone example project and deploy with a single command line
 
 #### Static hosting
 
@@ -23,6 +27,14 @@ lets login
 git clone https://github.com/let-sh/example
 cd static
 lets deploy -t static
+```
+
+#### React
+
+```bash
+git clone https://github.com/let-sh/example
+cd react
+lets deploy -t react
 ```
 
 #### Node express framework

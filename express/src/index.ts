@@ -7,5 +7,7 @@ if (!process.env.PORT) {
 }
 
 const port = +process.env.PORT!;
-app.get("/", (_req, res) => res.send("Hello Oasis!"));
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.get("/", (_req, res) => res.send("hello, oasis"));
+app.listen(port, () =>
+  console.log(`Example app listening on http://localhost:${port}`)
+);

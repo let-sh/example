@@ -9,9 +9,7 @@ import (
 func main() {
 	r := gin.Default()
 	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "hello, oasis",
-		})
+		c.String(200, "hello, oasis")
 	})
 
 	port := os.Getenv("PORT")

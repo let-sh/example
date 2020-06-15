@@ -37,6 +37,30 @@ cd react
 lets deploy -t react
 ```
 
+#### Vue
+
+```bash
+git clone https://github.com/let-sh/example
+cd vue
+lets deploy -t vue
+```
+
+#### Hexo
+
+```bash
+git clone https://github.com/let-sh/example
+cd hexo
+lets deploy -t hexo
+```
+
+#### Gatsby
+
+```bash
+git clone https://github.com/let-sh/example
+cd gatsby
+lets deploy -t gatsby
+```
+
 #### Node express framework
 
 ```bash

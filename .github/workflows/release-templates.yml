@@ -6,7 +6,7 @@ name: release-templates
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - "v*.*.*"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,7 +17,7 @@ jobs:
         run: echo ${{ github.sha }} > Release.txt
       - name: Pack templates
         run: |
-          for f in $(find "." -mindepth 1 -maxdepth 1 -type d ); do
+          for f in $(find "." -not -path ".git" -mindepth 1 -maxdepth 1 -type d ); do
               zip -r "$f" "$f"
           done
       - name: Release
@@ -29,17 +29,3 @@ jobs:
             Release.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  publish-gpr:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

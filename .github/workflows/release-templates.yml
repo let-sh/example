@@ -1,12 +1,9 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
-
 name: release-templates
 
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - "v*.*.*"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,8 +14,8 @@ jobs:
         run: echo ${{ github.sha }} > Release.txt
       - name: Pack templates
         run: |
-          for f in $(find "." -mindepth 1 -maxdepth 1 -type d ); do
-              zip -r "$f" "$f"
+          for f in $(find "." -mindepth 1 -maxdepth 1 -type d); do
+              zip -r "$f".zip "$f"
           done
       - name: Release
         uses: softprops/action-gh-release@v1
@@ -29,17 +26,3 @@ jobs:
             Release.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  publish-gpr:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

@@ -10,8 +10,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Build
-        run: echo ${{ github.sha }} > Release.txt
       - name: Pack templates
         run: |
           for f in $(find "." -mindepth 1 -maxdepth 1 -type d); do
@@ -23,6 +21,5 @@ jobs:
         with:
           files: |
             *.zip
-            Release.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

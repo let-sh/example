@@ -9,6 +9,6 @@ jobs:
     steps:
       - uses: koj-co/dependabot-pr-action@master
         with:
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           merge-minor: true
           merge-patch: true
